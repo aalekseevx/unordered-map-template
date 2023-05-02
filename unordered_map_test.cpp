@@ -225,7 +225,7 @@ void TestNoRedundantCopies() {
     // std::cerr << "m.erase(m.begin()) done" << std::endl;
     m.erase(m.begin());
     // std::cerr << "m.erase(m.begin()) done once again" << std::endl;
-    assert(m.empty());
+    assert(m.size() == 0);  // NOLINT
 }
 
 template <typename T>
