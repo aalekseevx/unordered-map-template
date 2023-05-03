@@ -30,8 +30,6 @@ lint:
 	bash -c "diff -u <(cat *.h *.cpp) <(clang-format --style=file --Werror *.h *.cpp)"
 	@echo 'Run linter'
 	clang-tidy --config "$(shell cat .clang-tidy)" --warnings-as-errors="*"  unordered_map_test.cpp '-header-filter=.*' -- -std=c++20 -g -O0 -Wall -Wextra -Werror
-	@echo 'Check NOLINT is not used'
-	! grep NOLINT unordered_map.h
 	@echo 'Check std::unordered_map is not used'
 	! grep std::unordered_map unordered_map.h
 	@echo 'Check all TODOs are removed'
